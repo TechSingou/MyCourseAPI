@@ -1,0 +1,15 @@
+### dev env config
+ spring:
+  application:
+    name: dev-server
+  datasource:
+    url: jdbc:h2:mem:courseDb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    hikari:
+      minimum-idle: 6
+      maximum-pool-size: 12
+  h2:
+   console:
+      enabled: true

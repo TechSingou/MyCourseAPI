@@ -1,0 +1,4 @@
+### test env config
+ spring:
+  application:
+    name: test-server
