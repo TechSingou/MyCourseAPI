@@ -21,9 +21,9 @@ public class CourseRepositoryTests {
     @Autowired
     private CourseRepository courseRepository;
 
-    @DisplayName("save Method")
+    @DisplayName("Test save Method")
     @Test
-    public void CourseRepository_SaveAll_ReturnSavedCourse() {
+    public void CourseRepository_Save_ReturnSavedCourse() {
         // Arrange
         Course course = Course.builder()
                 .name("Mastering Spring Boot")
@@ -40,7 +40,7 @@ public class CourseRepositoryTests {
         Assertions.assertThat(savedCourse.getId()).isGreaterThan(0);
     }
 
-    @DisplayName("findAll Method")
+    @DisplayName("Test findAll Method")
     @Test
     public void CourseRepository_GetAll_ReturnMoreThanOneCourse() {
         // Arrange
@@ -67,7 +67,7 @@ public class CourseRepositoryTests {
         Assertions.assertThat(courseList.size()).isEqualTo(2);
     }
 
-    @DisplayName("findById Method")
+    @DisplayName("Test findById Method")
     @Test
     public void CourseRepository_FindById_ReturnsCourse() {
         // Arrange
@@ -87,7 +87,7 @@ public class CourseRepositoryTests {
         Assertions.assertThat(existingCourse).isNotNull();
     }
 
-    @DisplayName("deleteById Method")
+    @DisplayName("Test deleteById Method")
     @Test
     public void CourseRepository_DeleteById_Then_CourseOneDelete() {
         // Arrange

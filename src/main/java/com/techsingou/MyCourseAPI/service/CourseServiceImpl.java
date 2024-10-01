@@ -34,7 +34,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void updateCourse(long courseId, Course course) {
+    public Course updateCourse(long courseId, Course course) {
        /* courseRepository.findById(courseId).ifPresent(dbcourse -> {
             dbcourse.setName(course.getName());
             dbcourse.setCategory(course.getCategory());
@@ -46,15 +46,15 @@ public class CourseServiceImpl implements CourseService {
                 .orElseThrow(() -> new CourseNotFoundException(String.format("No Course with id %s is available", courseId)));
         existingCourse.setName(course.getName());
         existingCourse.setCategory(course.getCategory());
-        existingCourse.setCategory(course.getDescription());
+        existingCourse.setDescription(course.getDescription());
         existingCourse.setRating(course.getRating());
-        courseRepository.save(existingCourse);
+        return courseRepository.save(existingCourse);
     }
 
     @Override
     public void deleteCourseById(long courseId) {
         courseRepository.findById(courseId)
-                .orElseThrow(() -> new CourseNotFoundException(String.format("No course with id %s is available",courseId)));
+                .orElseThrow(() -> new CourseNotFoundException(String.format("No course with id %s is available", courseId)));
         courseRepository.deleteById(courseId);
     }
 

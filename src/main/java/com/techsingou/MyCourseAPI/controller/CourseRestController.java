@@ -34,8 +34,8 @@ public class CourseRestController {
     }
 
     @PutMapping("{id}")
-    public void updateCourse(@PathVariable("id") long courseId, @RequestBody Course course) {
-        courseService.updateCourse(courseId, course);
+    public Course updateCourse(@PathVariable("id") long courseId, @RequestBody Course course) {
+        return courseService.updateCourse(courseId, course);
     }
 
     @DeleteMapping("{id}")
