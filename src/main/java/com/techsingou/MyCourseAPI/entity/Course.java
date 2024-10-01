@@ -1,11 +1,13 @@
 package com.techsingou.MyCourseAPI.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "COURSES")
+@Builder
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
