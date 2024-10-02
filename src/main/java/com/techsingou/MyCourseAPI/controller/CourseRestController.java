@@ -3,6 +3,7 @@ package com.techsingou.MyCourseAPI.controller;
 import com.techsingou.MyCourseAPI.entity.Course;
 import com.techsingou.MyCourseAPI.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -14,6 +15,7 @@ public class CourseRestController {
     private CourseService courseService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public Iterable<Course> getAllCourses() {
         return courseService.getCourses();
     }
@@ -29,11 +31,13 @@ public class CourseRestController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Course createCourse(@RequestBody Course course) {
         return courseService.createCourse(course);
     }
 
     @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Course updateCourse(@PathVariable("id") long courseId, @RequestBody Course course) {
         return courseService.updateCourse(courseId, course);
     }
